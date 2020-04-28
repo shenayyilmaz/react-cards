@@ -10,6 +10,7 @@ class App extends Component {
     this.state = {
       cards: [],
       searchFiled: "",
+      num: 0,
     };
   }
 
@@ -30,7 +31,16 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>Card test test </h1>
+        <h1>Card test test {this.state.num}</h1>
+        <button
+          onClick={() =>
+            this.setState((prevState, prevProps) => ({
+              num: prevState.num + prevProps.increment,
+            }))
+          }
+        >
+          Increment
+        </button>
         <SearchBox
           placeholder="search cards"
           handleChange={this.handleChange}
